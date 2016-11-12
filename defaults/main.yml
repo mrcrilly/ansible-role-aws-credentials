@@ -1,0 +1,15 @@
+---
+
+aws_credentials_install_cli_tools: false
+aws_credentials:
+  - username: username
+    home_dir: /home/username
+    aws_secret_access_key: blank
+    aws_access_key_id: blank
+    region: ap-southeast-2
+
+  - username: root
+    home_dir: /root
+    aws_secret_access_key: not_blank
+    aws_access_key_id: not_blank
+    region: ap-southeast-1

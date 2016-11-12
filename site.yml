@@ -1,0 +1,14 @@
+---
+
+- name: Test Role
+  hosts: all
+  connection: local
+  become: true
+  pre_tasks:
+    - name: Create our user
+      user:
+        name: username
+        state: present
+  roles:
+    - vagrant
+  

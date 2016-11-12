@@ -1,0 +1,35 @@
+---
+
+- name: Add users that don't already exist
+  user:
+    name: "{{item.username}}"
+    state: present
+  with_items: "{{aws_credentials}}"
+  when: item.username != "root"
+
+- name: Create .aws dir in home dir
+  file:
+    path: "{{item.home_dir}}/.aws"
+    state: directory
+    owner: "{{item.username}}"
+    group: "{{item.group}}"
+    mode: 0755
+  with_items: "{{aws_credentials}}"
+
+- name: Deploy AWS config file
+  template:
+    src: "config"
+    dest: "{{item.home_dir}}/.aws/config"
+    owner: "{{item.username}}"
+    group: "{{item.group}}"
+    mode: 0644
+  with_items: "{{aws_credentials}}"
+
+- name: Deploy AWS credentials file
+  template:
+    src: "credentials"
+    dest: "{{item.home_dir}}/.aws/credentials"
+    owner: "{{item.username}}"
+    group: "{{item.group}}"
+    mode: 0644
+  with_items: "{{aws_credentials}}"

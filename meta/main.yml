@@ -1,0 +1,8 @@
+galaxy_info:
+  author: Michael Crilly
+  description: Define me...
+  company: QTAC
+  license: MIT
+  min_ansible_version: 2.1
+  galaxy_tags: []
+dependencies: []

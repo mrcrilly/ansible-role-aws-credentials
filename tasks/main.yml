@@ -1,0 +1,12 @@
+---
+
+- include: files.yml
+  tags:
+    - aws-credentials
+    - aws-credentials-files
+
+- include: tools.yml
+  tags:
+    - aws-credentials
+    - aws-credentials-tools
+  when: aws_credentials_install_cli_tools == true

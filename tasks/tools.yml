@@ -1,0 +1,11 @@
+---
+
+- name: Install Python Pip
+  yum:
+    name: python-pip
+    state: present
+  
+- name: Install AWS CLI tools
+  pip:
+    name: awscli
+    state: present
